@@ -1,61 +1,439 @@
 // bower:scss
+@import "../bower_components/bourbon/dist/_bourbon.scss";
+@import "../bower_components/neat/app/assets/stylesheets/_neat.scss";
 // endbower
 
-body {
 
-    background: #fafafa;
-    background: url("../images/bg.png");
+// Brand Colors, Labeled by Products.
+
+$rum:     #FCBB2D;
+$menthol: #23AD34;
+$mojito:  #C3D42C;
+$tobacco: #AEAFB2;
+$sangria: #D50B3A;
+$whiskey: #DE5F1C;
+$trance:  #199BF0;
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #E6E6E6;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
-
-    &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    // background: #AF9B09;
-    // background-image: -webkit-gradient(linear, left top, right bottom, from(#00aeef), to(#09AF59));
-    // background-image: -webkit-linear-gradient(top left,  #00aeef, #09AF59);
-    // background-image: linear-gradient(to bottom right,  #00aeef, #09AF59);
-    // background: radial-gradient(farthest-side circle at center center, #28960A 0%, #053013 100%);
-    background: radial-gradient(farthest-side circle at center center, #FFFFFF 0%, #DADADA 100%);
-    background: radial-gradient(farthest-side circle at center center, #2A2A2A 0%, #030303 100%);
-    opacity: 0.87;
-    z-index: 2;
   }
 
+
+  // Age verefication ------------------
+
+  #age-verefier {
+    display: block;
+    background: #333;
+    hidden: true;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 900;
+    position: fixed;
+    text-align: center;
+    padding-top: 100px;
+    color: #fafafa;
+    margin-bottom: 1em;
+
+    &.active {
+      display: none;
+    }
+
+    .logo {
+      width: 35%;
+    }
+    
+    h1 {
+      letter-spacing: 0.04em;
+      font-size: 2em;
+      text-transform: uppercase;
+      margin-bottom: 0.3em;
+    }
+
+    button {
+      cursor: pointer;
+      background: #CCC973;
+      margin-left: 1em;
+      font-size: 0.8em;
+      padding: 1em;
+      border-bottom: 4px solid #807F6E;
+      border-right: none;
+      border-left: none;
+      border-top: none;
+        &:hover {
+          padding: 1.07em;
+        }    
+     }
+
+     .btn {
+        background: #DADADA;
+     }
+
+    p {
+      font-weight: 300;
+      text-align: center;
+      padding: 0 400px;
+      line-height: 1.3em;
+      margin-top: 0.9em;
+    }
+
+    .statement {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #b11f24;
+      text-shadow: 3px 0px 1px #2C2C2C;
+    }
+
+  }
+
+.hero {
+  height: 82vh;
+  width: 100%;
+  background: radial-gradient(farthest-side circle at center center,rgba(42, 42, 42, 0.73) 0,rgba(3, 3, 3, 0.82) 100%),url("../images/bg.png"); 
+  .container {
+    @include outer-container;
+    position: relative;
+    height: 100%;
+    padding-top: 4.7em;
+    }
 }
 
+.hero-logo {
+  @include span-columns(6);
+  @include shift(3);
+  img {
+    max-width: 100%;
+  } 
+}
 
-h1 {
-  position: relative;
-  z-index: 10;
+.hero-img {
+  @include span-columns(8);
+  @include shift(2);
+  margin-top: 1em;
+  img {
+    max-width: 100%;
+  }
+}
+
+.bottom-nav {
+  @include span-columns(6);
+  @include shift(3);
+  background: #272727;
+  position: absolute;
+  bottom: -30px;
+  height: 4em;
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+  z-index: 100;
+}
+
+.nav-btns{
+  padding: 0;
+  margin: 0;
+  line-height: 4em;
   text-align: center;
-  margin: 15% auto 0 auto;
-  font-size: 5em;
-  text-transform: uppercase;
-  text-shadow: 2px -1px 8px rgba(31, 47, 13, 0.53);
-  color: #CBDB29;
-  // color: #333;
-  font-weight: 100;
+  font-size: 1em;
+  letter-spacing: 2px;
+  
+  li {
+    font-weight: 100;
+    color: #fff;
+    list-style: none;
+    display: inline;
+    margin-left: 2em;
+    border-right: 1px solid #333;
+    padding-right: 1.7em;
+    padding-top: 1.4em;
+    padding-bottom: 1.4em;
+    cursor: pointer;
+    a{
+     font-weight: 100;
+     color: #fff;
+     text-decoration: none; 
+    }
+    &:last-child{
+      border-right: 0;
+    }
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.nav-scroll {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  background: #272727;
+  z-index: 110;
+  border-radius: 0;
+
+  ul {
+    text-align: right;
+  }
+  li {
+    padding: 1em 1em 1em 0;
+  }
+}
+
+.nav-scroll::before {
+  content: url('../images/logo-sm.png');
+  position: absolute;
+  margin: 12px;
+  
+}
+
+.about {
+  width: 100%;
+  height: 90vh;
+  background: #E6E6E6;
 
 }
 
-.logo {
-  width: 500px;
+.about-card{
+  background: #000;
+  @include outer-container;
+  box-shadow: 0 0 35px #333;
+  height: 80%;
+  @include border-bottom-radius(5px);
+  .about-logo {
+    @include span-columns(4);
+    @include shift(4);
+    margin-top: 6em;
+    img {
+      max-width: 100%;
+    }
+  }
+  .about-text {
+    font-weight: 100;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    line-height: 30px;
+    outline: 1px soild blue;
+    @include span-columns(8);
+    @include shift(2);
+    color: #FFF;
+    text-align: center;
+  }
+}
+
+.flav-nav {
+  width: 100%;
+  height: 4em;
+  background: #333;
   position: relative;
-  margin: 0 auto;
-  z-index: 13;
+  margin-top: 3.7em;
+  box-shadow: 0 2px 5px #000;
+
+  ul{
+   text-align: center;
+   margin: 0;
+   line-height: 4em;
+   color: #FFF;
+   font-weight: 100;
+   padding: 0;
+
+  }
+
+  li {
+    list-style: none;
+    display: inline;
+    margin-left: 0.77em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+}
+
+.slider {
+
+  .rum {
+    @include radial-gradient(circle at 50% 100%, lighten($rum, 15%) 9%, $rum 80%, darken($rum, 10%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+  .menthol {
+    @include radial-gradient(circle at 50% 100%,lighten($menthol, 15%) 9%, $menthol 80%, darken($menthol, 10%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+  .mojito {
+    @include radial-gradient(circle at 50% 100%, lighten($mojito, 10%) 9%, $mojito 80%, darken($mojito, 10%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+  .tobacco {
+    @include radial-gradient(circle at 50% 100%, darken($tobacco, 10%) 9%, $tobacco 80%, lighten($tobacco, 15%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+  .sangria {
+    @include radial-gradient(circle at 50% 100%, lighten($sangria, 15%) 9%, $sangria 80%, darken($sangria, 10%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+  .whiskey {
+    @include radial-gradient(circle at 50% 100%, lighten($whiskey, 15%) 9%, $whiskey 80%, darken($whiskey, 10%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+  .trance{
+    @include radial-gradient(circle at 50% 100%, lighten($trance, 15%) 9%, $trance 80%, darken($trance, 10%));
+    width: 100%;
+    height: 57vh;
+    padding: 1em;
+  }
+}
+
+.flav-content {
+  color: #FFF;
+  @include outer-container;
+  height: 100%;
+}
+
+.flav-img {
+
+  @include span-columns(6);
+  height: 100%;
+  img {
+    max-width: 55%;
+    float: right;
+  }
+}
+
+.flav-text {
+  @include span-columns(5);
+  height: 100%;
+  padding-top: 2.5em;
+  text-shadow: -3px 2px 11px rgba(42, 42, 42, 0.19);
+  h1{
+    font-size: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 3px solid #FFF;
+  }
+  p {
+    font-weight: 100;
+    font-size: 1.3em;
+    line-height: 30px;
+    letter-spacing: 1px;
+  }
+}
+
+
+.image-hidden {
+  display: none;
+}
+
+.image-shown {
+  z-index: 110;
+}
+
+
+.next {
+  margin-left: 200px;
+}
+
+a.previous, a.next {
+  position: absolute;
+  top: 450%;
+  z-index: 300;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.previous:hover, a.next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.previous {
+  border-radius: 0 2px 2px 0;
+}
+
+a.next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.contact {
+  width: 100%;
+  height: 40vh;
+  background: #000;
+}
+
+.contact-text {
+  @include span-columns(6);
+  @include shift(3);
+  text-align: center;
+  color: $menthol;
+  h1 {
+    font-weight: 100;
+    font-size: 3em;
+    letter-spacing: 3px;
+    margin-bottom: 0.1em;
+  }
+  p{
+    color: #FFF;
+    font-weight: 200;
+    line-height: 23px;
+    a{
+      color: $menthol;
+    }
+  }
 }
 
 
 .warning {
-  width: 27%;
-  position: absolute;
-  z-index: 20;
-  right: 0;
+  position: fixed;
+  width: 20%;
   bottom: 0;
+  right: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
