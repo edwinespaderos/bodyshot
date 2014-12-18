@@ -9,7 +9,7 @@
 $rum:     #FCBB2D;
 $menthol: #23AD34;
 $mojito:  #C3D42C;
-$tobacco: #AEAFB2;
+$tobacco: #454545;
 $sangria: #D50B3A;
 $whiskey: #DE5F1C;
 $trance:  #199BF0;
@@ -92,7 +92,7 @@ body {
   }
 
 .hero {
-  height: 82vh;
+  height: 72vh;
   width: 100%;
   background: radial-gradient(farthest-side circle at center center,rgba(42, 42, 42, 0.73) 0,rgba(3, 3, 3, 0.82) 100%),url("../images/bg.png"); 
   .container {
@@ -187,10 +187,10 @@ body {
 }
 
 .nav-scroll::before {
-  content: url('../images/logo-sm.png');
+  content: url('../images/logo-sm.svg');
   position: absolute;
-  margin: 12px;
-  
+  margin: 9px 25px;
+  width: 65px;  
 }
 
 .about {
@@ -256,51 +256,6 @@ body {
   }
 }
 
-.slider {
-
-  .rum {
-    @include radial-gradient(circle at 50% 100%, lighten($rum, 15%) 9%, $rum 80%, darken($rum, 10%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-  .menthol {
-    @include radial-gradient(circle at 50% 100%,lighten($menthol, 15%) 9%, $menthol 80%, darken($menthol, 10%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-  .mojito {
-    @include radial-gradient(circle at 50% 100%, lighten($mojito, 10%) 9%, $mojito 80%, darken($mojito, 10%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-  .tobacco {
-    @include radial-gradient(circle at 50% 100%, darken($tobacco, 10%) 9%, $tobacco 80%, lighten($tobacco, 15%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-  .sangria {
-    @include radial-gradient(circle at 50% 100%, lighten($sangria, 15%) 9%, $sangria 80%, darken($sangria, 10%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-  .whiskey {
-    @include radial-gradient(circle at 50% 100%, lighten($whiskey, 15%) 9%, $whiskey 80%, darken($whiskey, 10%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-  .trance{
-    @include radial-gradient(circle at 50% 100%, lighten($trance, 15%) 9%, $trance 80%, darken($trance, 10%));
-    width: 100%;
-    height: 57vh;
-    padding: 1em;
-  }
-}
 
 .flav-content {
   color: #FFF;
@@ -319,9 +274,10 @@ body {
 }
 
 .flav-text {
+  color: #FFF;
   @include span-columns(5);
   height: 100%;
-  padding-top: 2.5em;
+  padding-top: 5em;
   text-shadow: -3px 2px 11px rgba(42, 42, 42, 0.19);
   h1{
     font-size: 2em;
@@ -353,7 +309,7 @@ body {
 a.previous, a.next {
   position: absolute;
   top: 450%;
-  z-index: 300;
+  z-index: 200;
   display: block;
   padding: 4% 3%;
   width: auto;
@@ -388,7 +344,8 @@ a.next {
 
 .contact {
   width: 100%;
-  height: 40vh;
+  height: 30vh;
+  padding-top: 2em;
   background: #000;
 }
 
@@ -419,13 +376,50 @@ a.next {
   width: 20%;
   bottom: 0;
   right: 0;
+  z-index: 500;
 }
 
 
 
+.banner { 
+  position: relative; 
+  overflow: auto;
+  .rum {
+    @include radial-gradient(circle at 50% 100%, lighten($rum, 15%) 9%, $rum 80%, darken($rum, 10%));
+  }
+  .menthol {
+    @include radial-gradient(circle at 50% 100%,lighten($menthol, 15%) 9%, $menthol 80%, darken($menthol, 10%));
+  }
+  .mojito {
+    @include radial-gradient(circle at 50% 100%, lighten($mojito, 10%) 9%, $mojito 80%, darken($mojito, 10%));
+  }
+  .tobacco {
+    @include radial-gradient(circle at 50% 100%, lighten($tobacco, 10%) 9%, $tobacco 80%, darken($tobacco, 15%));
+  }
+  .sangria {
+    @include radial-gradient(circle at 50% 100%, lighten($sangria, 15%) 9%, $sangria 80%, darken($sangria, 10%));
+  }
+  .whiskey {
+    @include radial-gradient(circle at 50% 100%, lighten($whiskey, 15%) 9%, $whiskey 80%, darken($whiskey, 10%));
+  }
+  .trance{
+    @include radial-gradient(circle at 50% 100%, lighten($trance, 15%) 9%, $trance 80%, darken($trance, 10%));
+  }
 
+ }
 
+ .banner ul {
+  margin: 0;
+  padding: 0;
+ }
 
+.banner li { 
+  list-style: none; 
+  height: 55vh;
+}
+.banner ul li { 
+  float: left; 
+}
 
 
 
