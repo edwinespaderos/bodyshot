@@ -220,6 +220,7 @@ body {
     }
   }
   .about-text {
+    // height: 80vh;
     font-weight: 100;
     font-size: 1.2em;
     letter-spacing: 2px;
@@ -248,16 +249,18 @@ body {
    font-weight: 100;
    padding: 0;
 
-  }
 
-  li {
-    list-style: none;
-    display: inline;
-    margin-left: 0.77em;
-    cursor: pointer;
-    &:hover{
-      opacity: 0.5;
-    }
+   li {
+
+     list-style: none;
+     display: inline;
+     margin-left: 0.77em;
+     cursor: pointer;
+     &:hover{
+       opacity: 0.5;
+     }
+   }
+
   }
 }
 
@@ -381,7 +384,7 @@ a.next {
 
 .banner { 
   position: relative; 
-  overflow: auto;
+  // overflow: auto;  
   .rum {
     @include radial-gradient(circle at 50% 100%, lighten($rum, 15%) 9%, $rum 80%, darken($rum, 10%));
   }
